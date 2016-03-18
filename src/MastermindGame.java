@@ -1,47 +1,46 @@
 /**
  * A MasterMind game
  */
-public class Game { 
+// TODO rename class
+public class MastermindGame { 
 	
-	final static int NBR_TOURS= 12 ;
-
-	private final Code code;
+	// TODO rename constant
+	// TODO add visibility
+	/**
+	 * the number of round in the game
+	 */
+	public static int NUMBER_OF_ROUND= 10 ;
+	
+	// TODO write comment
+	/**
+	 * the code you have to find
+	 */
+	private final Code secretcode;
+	
+	
+	
+	
+	
+	
 	
 	/**
 	 * Creates a new Mastermind game, with random code
 	 */
-	public Game()
+	public MastermindGame()
 	{
-		this.code = new Code();
-		
+		this.secretcode = new Code();
 	}
 	
+	
+	// TODO write comment (algorithm)
 	/**
 	 * 
 	 */
 	public void play()
 	{
 		int i = 1 ;	
-		while(i<NBR_TOURS){
+		while(i<NUMBER_OF_ROUND){
 		
-		
-		
-		}
-	}
-	
-	
-	/**
-	 * a pawn
-	 */
-	public class pawn
-	{
-		final int R ;
-		final int G ;
-		final int B ;
-		
-		void affichepion(int x, int y)
-		{
-			
 		}
 	}
 }

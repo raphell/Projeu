@@ -1,8 +1,16 @@
-
+// TODO update README.md (what/who)
+// TODO write comment
+/**
+ * 
+ */
 public class Main {
-
+	// TODO write comment
+	/**
+	 * create a new Mastermind game
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		new Game().play() ;
+		new MastermindGame().play() ;
 	}
 	
 }

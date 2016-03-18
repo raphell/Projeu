@@ -1,4 +1,4 @@
-
+// TODO fix comment
 /**
  * 
  * @author lucianor
@@ -6,8 +6,25 @@
  */
 public class Code {
 	
-	pions x1,x2,x3,x4 ;
+	
+	public static int YELLOW = 1 ;
+	public static int RED = 2 ;
+	public static int GREEN = 3 ;
+	public static int BLUE = 4 ;
+	public static int ORANGE = 5 ;
+	public static int WHITE = 6 ;
+	public static int PURPLE = 7 ;
+	public static int PINK = 8 ;
+	
+	
+	// TODO write comment
+	/**
+	 * these integer compose the code
+	 */
+	int[] couleurs ;
+	
 
+	
 	/**
 	 * Creates a random code
 	 */
@@ -15,5 +32,15 @@ public class Code {
 	{
 		
 	}
-
+	
+	
+	/**
+	 * create a code with colors choose by the user
+	 */
+	public Code()
+	{
+		
+	
+	}
+	
 }
