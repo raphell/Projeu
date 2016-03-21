@@ -24,15 +24,13 @@ public class Code {
 	int[] couleurs ;
 	
 
-	
 	/**
-	 * Creates a random code
+	 * create a random code
 	 */
 	public Code()
 	{
 		
 	}
-	
 	
 	/**
 	 * create a code with colors choose by the user
@@ -42,5 +40,6 @@ public class Code {
 		
 	
 	}
+	
 	
 }
