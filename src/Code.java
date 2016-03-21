@@ -6,7 +6,7 @@
  */
 public class Code {
 	
-	
+	// TODO declare constants
 	public static int YELLOW = 1 ;
 	public static int RED = 2 ;
 	public static int GREEN = 3 ;
@@ -17,13 +17,10 @@ public class Code {
 	public static int PINK = 8 ;
 	
 	
-	// TODO write comment
 	/**
 	 * these integer compose the code
 	 */
 	int[] couleurs ;
-	
-
 	
 	/**
 	 * Creates a random code

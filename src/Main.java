@@ -1,4 +1,3 @@
-// TODO update README.md (what/who)
 // TODO write comment
 /**
  * 

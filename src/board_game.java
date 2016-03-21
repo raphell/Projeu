@@ -1,4 +1,4 @@
-
+// TODO rename class (not compliant with coding conventions)
 public class board {
 
 	/**
