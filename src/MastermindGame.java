@@ -1,27 +1,26 @@
 /**
  * A MasterMind game
  */
-// TODO rename class
 public class MastermindGame { 
 	
-	// TODO rename constant
-	// TODO add visibility
+
 	/**
 	 * the number of round in the game
 	 */
 	public static int NUMBER_OF_ROUND= 10 ;
-	public static int LENGTH_OF_CODE= 4 ;
 	
-	// TODO write comment
+	/**
+	 * the number of the current round
+	 */
+	public int Current_Round = 0 ; 
+
+	
 	/**
 	 * the code you have to find
 	 */
 	private final Code secretcode;
 	
-	
-	
-	
-	
+	public Code Usercode ;
 	
 	
 	/**
@@ -29,7 +28,8 @@ public class MastermindGame {
 	 */
 	public MastermindGame()
 	{
-		this.secretcode = new Code();
+		this.secretcode = new Code(0);
+
 	}
 	
 	
@@ -62,9 +62,13 @@ public class MastermindGame {
 	{
 		int i = 1 ;	
 		while(i<NUMBER_OF_ROUND){
+			this.Usercode = new Code(1) ;
 			
-		
-			
+			for(int j=0 ; j<LENGTH_OF_CODE ; j++){
+				if(this.Usercode.couleurs[j] == this.secretcode.couleurs[j]){
+					
+				}
+			}
 			
 		}
 	}
