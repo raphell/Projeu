@@ -32,6 +32,16 @@ public class MastermindGame {
 
 	}
 	
+	/**
+	 * represent the number of well placed pawn
+	 */
+	private int number_of_red_pegs = 0 ;
+	
+	/**
+	 * represent the number of pawn with good color but with a bad placement
+	 */
+	private int number_of_white_pegs = 0 ;
+	
 	
 	// TODO write comment (algorithm)
 	/**
@@ -66,6 +76,14 @@ public class MastermindGame {
 			
 			for(int j=0 ; j<LENGTH_OF_CODE ; j++){
 				if(this.Usercode.couleurs[j] == this.secretcode.couleurs[j]){
+					number_of_red_pegs++ ;
+				}
+				else{
+					for(int k ; k<LENGTH_OF_CODE ; k++){
+						if(this.Usercode.couleurs[j]== this.secretcode.couleurs[k]){
+							number_of_white_pegs++ ;...................................
+						}
+					}
 					
 				}
 			}

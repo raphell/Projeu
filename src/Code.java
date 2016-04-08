@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 // TODO fix comment
 /**
- * 
+ * Represent a code, generated randomly or choose by the user
  * @author lucianor
  *
  */
@@ -18,7 +18,7 @@ public class Code {
 	public static int WHITE = 6 ;
 	public static int PURPLE = 7 ;
 	public static int PINK = 8 ;
-	
+	 
 	Scanner userentry = new Scanner(System.in);
 
 	

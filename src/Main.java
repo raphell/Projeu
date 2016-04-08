@@ -1,7 +1,7 @@
 // TODO update README.md (what/who)
 // TODO write comment
 /**
- * 
+ * the application on which the game will run
  */
 public class Main {
 	// TODO write comment
@@ -10,7 +10,8 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		new MastermindGame().play() ;
+		MastermindGame blblbl = new MastermindGame() ;
+		blblbl.play() ;
 	}
 	
 }

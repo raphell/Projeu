@@ -1,10 +1,10 @@
 // TODO rename class (not compliant with coding conventions)
-public class board_game {
+public class Board_game {
 
 	/**
 	 * the number of column of the board
 	 */
-	public final static int NUMBER_OF_COLUMN=4 ;
+	public final int NUMBER_OF_COLUMN= LENGTH_OF_CODE ;
 	public final static int NUMBER_OF_LINE= NUMBER_OF_ROUND ;
 	
 }
