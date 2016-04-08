@@ -8,7 +8,6 @@ import java.util.Scanner;
  */
 public class Code {
 	
-
 	public static int LENGTH_OF_CODE = 4 ;	
 
 	// TODO declare constants

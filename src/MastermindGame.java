@@ -9,12 +9,20 @@ public class MastermindGame {
 	 */
 	public static int NUMBER_OF_ROUND= 10 ;
 	
-	
+	/**
+	 * 
+	 */
+	private int Current_round ;	
 	// TODO rename field (coding conventions)
 	/**
 	 * the code you have to find
 	 */
 	private final Code secretcode;
+	
+	/**
+	 * the code choose by the user
+	 */
+	private Code Usercode ;
 	
 	/**
 	 * Creates a new Mastermind game, with random code
@@ -67,20 +75,27 @@ public class MastermindGame {
 		while(i<NUMBER_OF_ROUND){
 			this.Usercode = new Code(1) ;
 			
-			for(int j=0 ; j<LENGTH_OF_CODE ; j++){
+			for(int j=0 ; j<Code.LENGTH_OF_CODE ; j++){
 				if(this.Usercode.couleurs[j] == this.secretcode.couleurs[j]){
 					number_of_red_pegs++ ;
 				}
 				else{
-					for(int k ; k<LENGTH_OF_CODE ; k++){
+					for(int k=0 ; k< Code.LENGTH_OF_CODE ; k++){
 						if(this.Usercode.couleurs[j]== this.secretcode.couleurs[k]){
-							number_of_white_pegs++ ;...................................
+							number_of_white_pegs++ ;
 						}
 					}
 					
 				}
 			}
 			
+			
+			System.out.println("red pegs = "+this.number_of_red_pegs);
+			System.out.println("white pegs = "+this.number_of_white_pegs);
+			
+			if(this.number_of_red_pegs == 4){
+				System.out.println("VICTORY in"+this.Current_round+"rounds") ;
+			}
 		}
 	}
 }
