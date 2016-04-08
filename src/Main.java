@@ -3,7 +3,7 @@
  * 
  */
 public class Main {
-	// TODO write comment
+	
 	/**
 	 * create a new Mastermind game
 	 * @param args

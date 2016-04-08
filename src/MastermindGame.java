@@ -8,6 +8,8 @@ public class MastermindGame {
 	 */
 	public static int NUMBER_OF_ROUND= 10 ;
 	
+	
+	// TODO rename field (coding conventions)
 	/**
 	 * the code you have to find
 	 */
