@@ -8,7 +8,9 @@ import java.util.Scanner;
  */
 public class Code {
 	
+
 	public static int LENGTH_OF_CODE = 4 ;	
+
 	// TODO declare constants
 	public static int YELLOW = 1 ;
 	public static int RED = 2 ;
@@ -22,13 +24,11 @@ public class Code {
 	Scanner userentry = new Scanner(System.in);
 
 	
-	// TODO write comment
 	/**
 	 * these integer compose the code
 	 */
 	int[] couleurs ;
 	
-
 	/**
 	 * create a code
 	 */

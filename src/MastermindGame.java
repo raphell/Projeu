@@ -9,19 +9,12 @@ public class MastermindGame {
 	 */
 	public static int NUMBER_OF_ROUND= 10 ;
 	
-	/**
-	 * the number of the current round
-	 */
-	public int Current_Round = 0 ; 
-
 	
+	// TODO rename field (coding conventions)
 	/**
 	 * the code you have to find
 	 */
 	private final Code secretcode;
-	
-	public Code Usercode ;
-	
 	
 	/**
 	 * Creates a new Mastermind game, with random code
