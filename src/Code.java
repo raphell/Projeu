@@ -1,4 +1,3 @@
-import java.util.Scanner; 
 
 // TODO fix comment
 /**
@@ -8,6 +7,9 @@ import java.util.Scanner;
  */
 public class Code {
 	
+	/**
+	 * the length of the code
+	 */
 	public static int LENGTH_OF_CODE = 4 ;	
 
 	// TODO declare constants
@@ -20,42 +22,44 @@ public class Code {
 	public static int PURPLE = 7 ;
 	public static int PINK = 8 ;
 	 
-	Scanner userentry = new Scanner(System.in);
 
-	
 	/**
 	 * these integer compose the code
 	 */
-	int[] couleurs ;
+	int[] codeColor ;
+	
 	
 	/**
-	 * create a code
+	 * create a code choose by the user
+	 * @param tab : the code the user have made
 	 */
-	public Code(int x)
+	public Code(int[] tab)
 	{
-		if (x==0){
-			//CREATE A RANDOM CODE
-			for(int i=0 ; i<LENGTH_OF_CODE; i++){
-				couleurs[i] = (int)(Math.random()*8) + 1 ;
-			}
-		}
-		else{
-			//CREATE A USER CODE
-			System.out.println("Saisissez les entiers correspondant aux couleurs");
-			for(int i=0 ; i<LENGTH_OF_CODE; i++){
-				couleurs[i] = userentry.nextInt();
-				int j = i ;
-				while(couleurs[i]!=couleurs[j-1] && j>0){
-					j-- ;
-				}
-				if(j!=0){
-					System.out.println("Couleur deja utilisee") ;
-					i-- ;
-				}
-			}
+		int i ;
+		for(i=0; i<LENGTH_OF_CODE ; i++)
+		{
+			codeColor[i]= tab[i] ;
 		}
 	}
 	
-	
+	/**
+	 * create a random code
+	 */
+	public Code(){
+		for(int i=0 ; i<LENGTH_OF_CODE; i++)
+		{
+			codeColor[i] = (int)(Math.random()*8) + 1 ;
+			int j = i-1 ;
+			while(codeColor[i]!=codeColor[j] && j>=0)
+			{
+				j-- ;
+			}
+			if(j!=-1)
+			{
+				i-- ;
+			}
+		}
+		//TODO verifier que le code n'ai pas 2 couleurs pareilles
+	}
 	
 }
