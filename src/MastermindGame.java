@@ -9,17 +9,10 @@ public class MastermindGame {
 	/**
 	 * the number of round in the game
 	 */
-	public static int NUMBER_OF_ROUND= 10 ;
+	public static int NUMBER_OF_ROUNDS= 10 ;
 	
-	/**
-	 * the length of the code
-	 */
-	public static int LENGTH_OF_CODE = 4 ;	
 	
-	/**
-	 * collect the user entry
-	 */
-	Scanner userentry = new Scanner(System.in);
+	
 	
 	/**
 	 * the number of the current round
@@ -34,7 +27,7 @@ public class MastermindGame {
 	/**
 	 * the code choose by the user
 	 */
-	private Code Usercode ;
+	private Code usercode ;
 	
 	/**
 	 * Creates a new Mastermind game, with random code
@@ -46,22 +39,24 @@ public class MastermindGame {
 	
 	
 	/**
-	 * stock an integer table to create a code with it
-	 */
-	int[] couleurs ;
-	
-	/**
 	 * create a user code
-	 * @return a table
+	 * @return a code
 	 */
-	public int[] CreateUserCode()
+	public Code createUserCode()
 	{
+		/**
+		 * collect the user entry
+		 */
+		final Scanner userentry = new Scanner(System.in);	
+		
+		Code uCode = null ;
+		
 		System.out.println("Saisissez les entiers correspondant aux couleurs");
-		for(int i=0 ; i<LENGTH_OF_CODE; i++)
+		for(int i=0 ; i<Code.LENGTH_OF_CODE; i++)
 		{
-			couleurs[i] = userentry.nextInt();
+			uCode.codeColor[i] = userentry.nextInt();
 			int j = i ;
-			while(couleurs[i]!=couleurs[j-1] && j>0)
+			while(uCode.codeColor[i]!=uCode.codeColor[j-1] && j>0)
 			{
 				j-- ;
 			}
@@ -71,7 +66,7 @@ public class MastermindGame {
 				i-- ;
 			}
 		}
-		return couleurs ;
+		return uCode ;
 	}
 	
 	
@@ -84,6 +79,34 @@ public class MastermindGame {
 	 * represent the number of pawn with good color but with a bad placement
 	 */
 	private int number_of_white_pegs = 0 ;
+	
+	
+	/**
+	 * compare the usercode to the secretcode to change the number_of_red_pegs and number_of_white_pegs
+	 */
+	public void verifCode()
+	{
+		for(int j=0 ; j<Code.LENGTH_OF_CODE ; j++)
+		{
+			if(this.usercode.codeColor[j] == this.secretcode.codeColor[j])
+			{
+				number_of_red_pegs++ ;
+			}
+			else
+			{
+				for(int k=0 ; k< Code.LENGTH_OF_CODE ; k++)
+				{
+					if(this.usercode.codeColor[j]== this.secretcode.codeColor[k])
+					{
+						number_of_white_pegs++ ;
+					}
+				}
+				
+			}
+		}
+	}
+	
+	
 	
 	
 	// TODO write comment (algorithm)
@@ -101,12 +124,12 @@ public class MastermindGame {
 	 *      afficher les indicateurs
 	 *      
 	 *      si (toutes les couleurs sont bonnes)
-	 *      	afficher victoire, recommencerpartie?
+	 *      	afficher victoire
 	 *      sinon
 	 *      	si (il reste des tours à jouer)
 	 *      		passe au tour suivant 
 	 *      	sinon 
-	 *      		afficher defaite/recommencerpartie?
+	 *      		afficher defaite
 	 *    
 	 * 			 
 	 * }
@@ -114,44 +137,28 @@ public class MastermindGame {
 	public void play()
 	{
 		int i = 1 ;	
-		while(i<NUMBER_OF_ROUND)
+		while(i<NUMBER_OF_ROUNDS)
 		{
+			this.usercode = createUserCode() ;
 			
-			this.Usercode = new Code(CreateUserCode()) ;
+			verifCode() ;
 			
-			for(int j=0 ; j<Code.LENGTH_OF_CODE ; j++)
-			{
-				if(this.Usercode.codeColor[j] == this.secretcode.codeColor[j])
-				{
-					number_of_red_pegs++ ;
-				}
-				else
-				{
-					for(int k=0 ; k< Code.LENGTH_OF_CODE ; k++)
-					{
-						if(this.Usercode.codeColor[j]== this.secretcode.codeColor[k])
-						{
-							number_of_white_pegs++ ;
-						}
-					}
-					
-				}
-			}
-			
-			System.out.println("Your code : "+this.Usercode.codeColor[0]+this.Usercode.codeColor[1]+this.Usercode.codeColor[2]+this.Usercode.codeColor[3]);
+			System.out.println("Your code : "+this.usercode.codeColor[0]+this.usercode.codeColor[1]+this.usercode.codeColor[2]+this.usercode.codeColor[3]);
 			System.out.println("red pegs = "+this.number_of_red_pegs);
 			System.out.println("white pegs = "+this.number_of_white_pegs);
 			
 			if(this.number_of_red_pegs == 4)
 			{
 				System.out.println("VICTORY in"+this.current_round+"rounds") ;
-				i = NUMBER_OF_ROUND ;
+				i = NUMBER_OF_ROUNDS ;
 			}
 		}
 		
 		if(this.number_of_red_pegs!=4)
 		{
 			System.out.println("You loose ! :( ");
+			System.out.println("The secret code was :" + this.secretcode.codeColor[0]+ this.secretcode.codeColor[1] + this.secretcode.codeColor[
+			                                                                                                                                    2] + this.secretcode.codeColor[3]);
 		}
 	}
 }

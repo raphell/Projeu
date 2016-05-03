@@ -9,6 +9,6 @@ public class Board_game {
 	/**
 	 * the number of line of the board
 	 */
-	public final static int NUMBER_OF_LINE = MastermindGame.NUMBER_OF_ROUND;
+	public final static int NUMBER_OF_LINE = MastermindGame.NUMBER_OF_ROUNDS;
 	
 }

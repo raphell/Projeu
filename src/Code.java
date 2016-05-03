@@ -29,23 +29,12 @@ public class Code {
 	int[] codeColor ;
 	
 	
-	/**
-	 * create a code choose by the user
-	 * @param tab : the code the user have made
-	 */
-	public Code(int[] tab)
-	{
-		int i ;
-		for(i=0; i<LENGTH_OF_CODE ; i++)
-		{
-			codeColor[i]= tab[i] ;
-		}
-	}
 	
 	/**
 	 * create a random code
 	 */
-	public Code(){
+	public Code()
+	{
 		for(int i=0 ; i<LENGTH_OF_CODE; i++)
 		{
 			codeColor[i] = (int)(Math.random()*8) + 1 ;
@@ -59,7 +48,5 @@ public class Code {
 				i-- ;
 			}
 		}
-		//TODO verifier que le code n'ai pas 2 couleurs pareilles
 	}
-	
 }
