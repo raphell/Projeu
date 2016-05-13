@@ -4,15 +4,11 @@ import java.util.Scanner;
  * A MasterMind game
  */
 public class MastermindGame { 
-	
 
 	/**
 	 * the number of round in the game
 	 */
 	public static int NUMBER_OF_ROUNDS= 10 ;
-	
-	
-	
 	
 	/**
 	 * the number of the current round
@@ -49,22 +45,32 @@ public class MastermindGame {
 		 */
 		final Scanner userentry = new Scanner(System.in);	
 		
-		Code uCode = null ;
+		Code uCode = new Code() ;
 		
 		System.out.println("Saisissez les entiers correspondant aux couleurs");
 		for(int i=0 ; i<Code.LENGTH_OF_CODE; i++)
 		{
+			System.out.println("Pion"+i+" :") ;
 			uCode.codeColor[i] = userentry.nextInt();
-			int j = i ;
-			while(uCode.codeColor[i]!=uCode.codeColor[j-1] && j>0)
+			if(uCode.codeColor[i]>0 && uCode.codeColor[i]<9)
 			{
-				j-- ;
+				int j = i-1 ;
+				while(j>=0 && uCode.codeColor[i]!=uCode.codeColor[j])
+				{
+					j-- ;
+				}
+				if(j!=-1)
+				{
+					System.out.println("Couleur deja utilisee") ;
+					i-- ;
+				}
 			}
-			if(j!=0)
+			else
 			{
-				System.out.println("Couleur deja utilisee") ;
+				System.out.println("Valeur invalide !");
 				i-- ;
 			}
+			
 		}
 		return uCode ;
 	}
@@ -79,34 +85,6 @@ public class MastermindGame {
 	 * represent the number of pawn with good color but with a bad placement
 	 */
 	private int number_of_white_pegs = 0 ;
-	
-	
-	/**
-	 * compare the usercode to the secretcode to change the number_of_red_pegs and number_of_white_pegs
-	 */
-	public void verifCode()
-	{
-		for(int j=0 ; j<Code.LENGTH_OF_CODE ; j++)
-		{
-			if(this.usercode.codeColor[j] == this.secretcode.codeColor[j])
-			{
-				number_of_red_pegs++ ;
-			}
-			else
-			{
-				for(int k=0 ; k< Code.LENGTH_OF_CODE ; k++)
-				{
-					if(this.usercode.codeColor[j]== this.secretcode.codeColor[k])
-					{
-						number_of_white_pegs++ ;
-					}
-				}
-				
-			}
-		}
-	}
-	
-	
 	
 	
 	// TODO write comment (algorithm)
@@ -141,7 +119,7 @@ public class MastermindGame {
 		{
 			this.usercode = createUserCode() ;
 			
-			verifCode() ;
+			this.usercode.verifCode(this.secretcode) ;
 			
 			System.out.println("Your code : "+this.usercode.codeColor[0]+this.usercode.codeColor[1]+this.usercode.codeColor[2]+this.usercode.codeColor[3]);
 			System.out.println("red pegs = "+this.number_of_red_pegs);
