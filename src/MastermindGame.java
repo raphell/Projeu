@@ -1,5 +1,3 @@
-import java.util.Scanner; 
-
 /**
  * A MasterMind game
  */
@@ -13,8 +11,8 @@ public class MastermindGame {
 	/**
 	 * the number of the current round
 	 */
-	private int current_round ;	
-	// TODO rename field (coding conventions)
+	private int current_round;	
+
 	/**
 	 * the code you have to find
 	 */
@@ -33,6 +31,16 @@ public class MastermindGame {
 		this.secretcode = new Code();
 	}
 	
+	/**
+	 * represent the number of well placed pawn
+	 */
+	private int number_of_red_pegs = 0 ;
+	
+	/**
+	 * represent the number of pawn with good color but with a bad placement
+	 */
+	private int number_of_white_pegs = 0 ;
+	
 	
 	/**
 	 * create a user code
@@ -40,19 +48,14 @@ public class MastermindGame {
 	 */
 	public Code createUserCode()
 	{
-		/**
-		 * collect the user entry
-		 */
-		final Scanner userentry = new Scanner(System.in);	
-		
 		Code uCode = new Code() ;
 		
 		System.out.println("Saisissez les entiers correspondant aux couleurs");
 		for(int i=0 ; i<Code.LENGTH_OF_CODE; i++)
 		{
-			System.out.println("Pion"+i+" :") ;
-			uCode.codeColor[i] = userentry.nextInt();
-			if(uCode.codeColor[i]>0 && uCode.codeColor[i]<9)
+			System.out.print("Pion "+i+" :") ;
+			uCode.codeColor[i] = Main.userentry.nextInt();
+			if(uCode.codeColor[i]>=0 && uCode.codeColor[i]<9)
 			{
 				int j = i-1 ;
 				while(j>=0 && uCode.codeColor[i]!=uCode.codeColor[j])
@@ -76,18 +79,7 @@ public class MastermindGame {
 	}
 	
 	
-	/**
-	 * represent the number of well placed pawn
-	 */
-	private int number_of_red_pegs = 0 ;
-	
-	/**
-	 * represent the number of pawn with good color but with a bad placement
-	 */
-	private int number_of_white_pegs = 0 ;
-	
-	
-	// TODO write comment (algorithm)
+
 	/**
 	 * tant que (la partie n'est pas finie){
 	 * 
@@ -107,36 +99,36 @@ public class MastermindGame {
 	 *      	si (il reste des tours à jouer)
 	 *      		passe au tour suivant 
 	 *      	sinon 
-	 *      		afficher defaite
-	 *    
-	 * 			 
+	 *      		afficher defaite 
 	 * }
 	 */
 	public void play()
 	{
-		int i = 1 ;	
-		while(i<NUMBER_OF_ROUNDS)
+		current_round = 1;
+		while(current_round<=NUMBER_OF_ROUNDS)
 		{
 			this.usercode = createUserCode() ;
 			
-			this.usercode.verifCode(this.secretcode) ;
+			number_of_red_pegs = this.usercode.verifCode(this.secretcode)[0] ;
+			number_of_white_pegs = this.usercode.verifCode(this.secretcode)[1] ;
 			
 			System.out.println("Your code : "+this.usercode.codeColor[0]+this.usercode.codeColor[1]+this.usercode.codeColor[2]+this.usercode.codeColor[3]);
 			System.out.println("red pegs = "+this.number_of_red_pegs);
 			System.out.println("white pegs = "+this.number_of_white_pegs);
+			System.out.println("Round number: "+ this.current_round);
 			
 			if(this.number_of_red_pegs == 4)
 			{
-				System.out.println("VICTORY in"+this.current_round+"rounds") ;
-				i = NUMBER_OF_ROUNDS ;
+				System.out.println("VICTORY ! ! ! in "+this.current_round+" rounds") ;
+				current_round = NUMBER_OF_ROUNDS ;
 			}
+			current_round++ ;
 		}
 		
 		if(this.number_of_red_pegs!=4)
 		{
 			System.out.println("You loose ! :( ");
-			System.out.println("The secret code was :" + this.secretcode.codeColor[0]+ this.secretcode.codeColor[1] + this.secretcode.codeColor[
-			                                                                                                                                    2] + this.secretcode.codeColor[3]);
+			System.out.println("The secret code was :" + this.secretcode.codeColor[0]+ this.secretcode.codeColor[1] + this.secretcode.codeColor[2] + this.secretcode.codeColor[3]);
 		}
 	}
 }

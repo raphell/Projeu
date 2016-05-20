@@ -1,4 +1,5 @@
 import java.util.Scanner; 
+import javax.swing.JFrame;
 
 // TODO write comment
 /**
@@ -6,14 +7,18 @@ import java.util.Scanner;
  */
 public class Main {
 	
-		
+	/**
+	 * collect the user entry
+	 */
+	public static Scanner userentry = new Scanner(System.in);
+	
 	/**
 	 * create a new Mastermind game
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-		Scanner userentry = new Scanner(System.in);
+		
 		
 		int answer =1;
 		

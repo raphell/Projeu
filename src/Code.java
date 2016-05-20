@@ -58,6 +58,8 @@ public class Code {
 	
 	/**
 	 * compare the usercode to the secretcode to change the number_of_red_pegs and number_of_white_pegs
+	 * @param code : you will compare your code to this code
+	 * @return the values of the number of white and red pegs in a table
 	 */
 	public int[] verifCode(Code code)
 	{
@@ -75,14 +77,13 @@ public class Code {
 				{
 					if(this.codeColor[j]== code.codeColor[k])
 					{
-						number_for_pegs[0] = number_for_pegs[0]+1 ; //white pegs
+						number_for_pegs[1] = number_for_pegs[1]+1 ; //white pegs
 					}
 				}
 			}
 		}
-		return number_for_pegs[] ;
+		return number_for_pegs ;
 	}
-	
 	
 	
 }
