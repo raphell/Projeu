@@ -87,7 +87,7 @@ public class MastermindGame {
 	 *      	verifier a chaque fois que la couleur n'a pas été choisie
 	 *      
 	 *      verifier que chaque couleur correspond
-	 *      		-correspond :
+	 *      		-correspond : incrémentation compteur "red_pegs"
 	 *      		-correspond pas : verifier que la couleur est présente
 	 *      
 	 *      afficher le code dans le tableau
@@ -116,7 +116,7 @@ public class MastermindGame {
 			System.out.println("red pegs = "+this.number_of_red_pegs);
 			System.out.println("white pegs = "+this.number_of_white_pegs);
 			System.out.println("Round number: "+ this.current_round);
-			
+
 			if(this.number_of_red_pegs == 4)
 			{
 				System.out.println("VICTORY ! ! ! in "+this.current_round+" rounds") ;

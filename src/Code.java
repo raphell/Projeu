@@ -12,17 +12,6 @@ public class Code {
 	 */
 	public static int LENGTH_OF_CODE = 4 ;	
 
-	// TODO declare constants -->replace by enum
-	public static int YELLOW = 1 ;
-	public static int RED = 2 ;
-	public static int GREEN = 3 ;
-	public static int BLUE = 4 ;
-	public static int ORANGE = 5 ;
-	public static int WHITE = 6 ;
-	public static int PURPLE = 7 ;
-	public static int PINK = 8 ;
-	 
-
 	/**
 	 * these integer compose the code
 	 */

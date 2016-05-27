@@ -1,5 +1,4 @@
 import java.util.Scanner; 
-import javax.swing.JFrame;
 
 // TODO write comment
 /**
@@ -27,6 +26,7 @@ public class Main {
 			blblbl.play() ;
 			System.out.println("Jouer une nouvelle partie ? OUI-->1     NON-->0");
 			answer = userentry.nextInt();
+			System.out.print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		}
 
 	}
